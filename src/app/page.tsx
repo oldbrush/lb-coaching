@@ -83,9 +83,7 @@ export default function Home() {
           {/* Text on right, centered */}
           <div className="text-center order-1 lg:order-2">
             <h1 className="animate-fade-in-up text-4xl font-bold leading-tight tracking-tight text-charcoal md:text-5xl lg:text-6xl">
-              Relation<span className="uppercase">ship</span>{" "}
-              Coac<span className="lowercase">hin</span>
-              <span className="uppercase">g</span>
+              Relationship Coaching
             </h1>
             <p className="animate-fade-in-up-delay-1 mt-5 text-sm font-medium uppercase tracking-[0.25em] text-midgray">
               Understand &nbsp;&rarr;&nbsp; Uncover &nbsp;&rarr;&nbsp; Rewire
@@ -136,7 +134,7 @@ export default function Home() {
           </div>
           <div className="text-center lg:text-left">
             <h2 className="text-2xl font-bold tracking-tight text-charcoal md:text-3xl">
-              Breaking the <span className="uppercase">Cycle</span>
+              Breaking the Cycle
             </h2>
             <p className="mt-4 text-base leading-relaxed text-darkgray">
               A free downloadable workbook designed to help you uncover the
