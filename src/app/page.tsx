@@ -31,55 +31,82 @@ const testimonials = [
     quote:
       "I experienced the most profound shifts in my self-worth through this work. I stopped tolerating less than I deserve and started showing up for myself fully.",
   },
-];
-
-const pillars = [
   {
-    number: "01",
-    title: "UNDERSTAND",
-    subtitle: "Slow down, listen in",
-    description:
-      "Through somatic attunement, we learn to track your nervous system cues and protective parts — the tension, the shutdown, the hypervigilance. This is where awareness begins: in the body, not the mind.",
-    image: "/images/group-25.jpg",
+    name: "Anna R.",
+    quote:
+      "Lindsey helped me see the patterns I couldn't see on my own. For the first time, I feel like I have a choice in how I show up in my relationships.",
   },
   {
-    number: "02",
-    title: "UNCOVER",
-    subtitle: "Trace the pattern to its origin",
-    description:
-      "We explore where your relational patterns began — early attachment dynamics, family systems, cultural messaging — to reveal the core beliefs silently shaping your choices, boundaries, and sense of self.",
-    image: "/images/group-26.jpg",
+    name: "Beth V.",
+    quote:
+      "This work gave me the tools to stop abandoning myself in love. I finally understand what secure connection actually feels like.",
   },
   {
-    number: "03",
-    title: "REWIRE",
-    subtitle: "Integrate new patterns",
-    description:
-      "With deep understanding comes the capacity for real change. We integrate new relational patterns through secure actions, clear boundaries, and aligned relationships that reflect who you truly are.",
-    image: "/images/group-27.jpg",
+    name: "Fallon M.",
+    quote:
+      "Working with Lindsey was the most transformative experience of my life. I went from constant anxiety to genuine peace in my relationships.",
+  },
+  {
+    name: "Jessica W.",
+    quote:
+      "I never understood why I kept choosing the same type of partner. Now I do, and I've completely changed the way I approach love and intimacy.",
+  },
+  {
+    name: "Elizabeth R.",
+    quote:
+      "Lindsey creates such a safe space. I was able to access parts of myself I'd been protecting for decades and finally begin to heal them.",
+  },
+  {
+    name: "Hannah G.",
+    quote:
+      "The somatic work was a game-changer. My body was holding so much that talk therapy alone couldn't reach. I feel freer than I have in years.",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-white px-6 pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-          <div>
+      {/* ─── Hero ─── */}
+      <section className="bg-white px-6 pt-28 pb-16 md:pt-36 md:pb-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
+          {/* Image first on desktop (left side) */}
+          <div className="relative aspect-[4/5] w-full overflow-hidden order-2 lg:order-1">
+            <Image
+              src="/images/hero.jpg"
+              alt="Lindsey Bourne"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+          {/* Text on right, centered */}
+          <div className="text-center order-1 lg:order-2">
             <h1 className="animate-fade-in-up text-4xl font-bold leading-tight tracking-tight text-charcoal md:text-5xl lg:text-6xl">
-              Relationship<br />Coaching
+              Relation<span className="uppercase">ship</span>{" "}
+              Coac<span className="lowercase">hin</span>
+              <span className="uppercase">g</span>
             </h1>
-            <p className="animate-fade-in-up-delay-1 mt-4 text-sm font-medium uppercase tracking-[0.2em] text-midgray">
-              Understand &rarr; Uncover &rarr; Rewire
+            <p className="animate-fade-in-up-delay-1 mt-5 text-sm font-medium uppercase tracking-[0.25em] text-midgray">
+              Understand &nbsp;&rarr;&nbsp; Uncover &nbsp;&rarr;&nbsp; Rewire
             </p>
-            <p className="animate-fade-in-up-delay-2 mt-6 max-w-lg text-base leading-relaxed text-darkgray">
+            <p className="animate-fade-in-up-delay-2 mx-auto mt-6 max-w-md text-base leading-relaxed text-darkgray">
               If you find yourself caught in repetitive relationship patterns,
               anxious&ndash;avoidant cycles, or nervous system dysregulation,
               you&rsquo;re not broken &mdash; you&rsquo;re wired for protection.
-              Through somatic attachment coaching, subconscious rewiring, and
-              nervous system healing, we go beneath the surface to create
-              lasting change.
+              Through{" "}
+              <strong className="font-semibold text-charcoal">
+                somatic attachment coaching
+              </strong>
+              ,{" "}
+              <strong className="font-semibold text-charcoal">
+                subconscious rewiring
+              </strong>
+              , and{" "}
+              <strong className="font-semibold text-charcoal">
+                nervous system healing
+              </strong>
+              , we go beneath the surface to create lasting change.
             </p>
             <div className="animate-fade-in-up-delay-3 mt-8">
               <a
@@ -92,37 +119,10 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="relative aspect-[4/5] w-full overflow-hidden">
-            <Image
-              src="/images/hero.jpg"
-              alt="Lindsey Bourne"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
         </div>
       </section>
 
-      {/* About the Approach */}
-      <section className="bg-white px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-charcoal md:text-3xl">
-            A Different Kind of Coaching
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-darkgray md:text-lg">
-            This isn&rsquo;t surface-level advice or quick-fix strategies.
-            This is deep, embodied pattern work &mdash; exploring what lives
-            beneath your behaviours, your triggers, and your relationship
-            cycles. Together, we create the conditions for your nervous system
-            to soften, your awareness to expand, and your relational world to
-            shift from the inside out.
-          </p>
-        </div>
-      </section>
-
-      {/* Free Resource Section */}
+      {/* ─── Breaking the Cycle (Free Resource) ─── */}
       <section className="bg-offwhite px-6 py-20 md:py-28">
         <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-2">
           <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -134,30 +134,22 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
-          <div>
+          <div className="text-center lg:text-left">
             <h2 className="text-2xl font-bold tracking-tight text-charcoal md:text-3xl">
-              Breaking the Cycle
+              Breaking the <span className="uppercase">Cycle</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-darkgray">
               A free downloadable workbook designed to help you uncover the
               hidden dynamics driving your relationship patterns &mdash; so you
               can begin to understand, interrupt, and ultimately transform them.
             </p>
-            <form className="mt-8 max-w-sm space-y-3" action="#">
-              <div className="flex gap-3">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  aria-label="First Name"
-                  className="w-full border border-lightgray bg-white px-4 py-3 text-sm text-charcoal placeholder:text-midgray focus:border-charcoal focus:outline-none"
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  aria-label="Last Name"
-                  className="w-full border border-lightgray bg-white px-4 py-3 text-sm text-charcoal placeholder:text-midgray focus:border-charcoal focus:outline-none"
-                />
-              </div>
+            <form className="mx-auto mt-8 max-w-sm space-y-3 lg:mx-0" action="#">
+              <input
+                type="text"
+                placeholder="First Name"
+                aria-label="First Name"
+                className="w-full border border-lightgray bg-white px-4 py-3 text-sm text-charcoal placeholder:text-midgray focus:border-charcoal focus:outline-none"
+              />
               <input
                 type="email"
                 placeholder="Email Address"
@@ -175,28 +167,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* ─── Testimonials ─── */}
       <section className="overflow-hidden bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-charcoal md:text-3xl">
-            Kind Words
-          </h2>
-        </div>
-
-        <div className="relative mt-12">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
 
           <div className="flex w-max animate-scroll-left">
             {[...testimonials, ...testimonials].map((t, i) => (
               <div
                 key={i}
-                className="mx-3 w-80 shrink-0 border border-lightgray bg-offwhite px-8 py-10 md:w-96"
+                className="mx-3 w-72 shrink-0 border border-lightgray px-6 py-8 md:w-80"
               >
                 <p className="text-sm leading-relaxed text-darkgray italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-charcoal">
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.15em] text-charcoal">
                   {t.name}
                 </p>
               </div>
@@ -205,55 +191,91 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Three Pillars */}
-      <section className="bg-offwhite px-6 py-20 md:py-28">
+      {/* ─── Three Pillars (Understand / Uncover / Rewire) ─── */}
+      <section className="bg-white px-6 py-20 md:py-28">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-center text-2xl font-bold tracking-tight text-charcoal md:text-3xl">
-            The Framework
-          </h2>
-
-          <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-8">
-            {pillars.map((p) => (
-              <div key={p.number} className="text-center">
-                <div className="relative mx-auto mb-6 h-16 w-16">
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    className="object-contain"
-                    sizes="64px"
-                  />
-                </div>
-                <p className="text-xs font-semibold tracking-[0.2em] text-midgray">
-                  {p.number}
-                </p>
-                <h3 className="mt-2 text-xl font-bold tracking-wide text-charcoal">
-                  {p.title}
-                </h3>
-                <p className="mt-1 text-sm italic text-midgray">
-                  {p.subtitle}
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-darkgray">
-                  {p.description}
-                </p>
+          <div className="grid gap-16 md:grid-cols-3 md:gap-10">
+            {/* Understand */}
+            <div className="text-center">
+              <div className="relative mx-auto mb-5 h-12 w-12">
+                <Image
+                  src="/images/star-main.png"
+                  alt=""
+                  fill
+                  className="object-contain"
+                  sizes="48px"
+                />
               </div>
-            ))}
+              <h3 className="text-lg font-bold uppercase tracking-widest text-charcoal">
+                Understand
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-darkgray">
+                Through somatic attunement, we learn to track your nervous system
+                cues and protective parts &mdash; the tension, the shutdown, the
+                hypervigilance. This is where awareness begins: in the body, not
+                the mind.
+              </p>
+            </div>
+
+            {/* Uncover */}
+            <div className="text-center">
+              <div className="relative mx-auto mb-5 h-12 w-12">
+                <Image
+                  src="/images/subtract.png"
+                  alt=""
+                  fill
+                  className="object-contain"
+                  sizes="48px"
+                />
+              </div>
+              <h3 className="text-lg font-bold uppercase tracking-widest text-charcoal">
+                Uncover
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-darkgray">
+                We explore where your relational patterns began &mdash; early
+                attachment dynamics, family systems, cultural messaging &mdash;
+                to reveal the core beliefs silently shaping your choices,
+                boundaries, and sense of self.
+              </p>
+            </div>
+
+            {/* Rewire */}
+            <div className="text-center">
+              <div className="relative mx-auto mb-5 h-12 w-12">
+                <Image
+                  src="/images/star-2.png"
+                  alt=""
+                  fill
+                  className="object-contain"
+                  sizes="48px"
+                />
+              </div>
+              <h3 className="text-lg font-bold uppercase tracking-widest text-charcoal">
+                Rewire
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-darkgray">
+                With deep understanding comes the capacity for real change. We
+                integrate new relational patterns through secure actions, clear
+                boundaries, and aligned relationships that reflect who you truly
+                are.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services CTA */}
-      <section className="bg-white px-6 py-20 md:py-28">
+      {/* ─── Ready to make some change? ─── */}
+      <section className="bg-offwhite px-6 py-20 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-charcoal md:text-3xl">
             Ready to make some change?
           </h2>
           <p className="mt-6 text-base leading-relaxed text-darkgray md:text-lg">
             Real, embodied change happens in relationship &mdash; with
-            yourself, your history, and a guide who can hold the space.
-            I offer limited 1:1 coaching spots for those ready to do the
-            deep work. If something here resonates, I&rsquo;d love to
-            hear from you.
+            yourself, your history, and a guide who can hold the space. I offer
+            limited 1:1 coaching spots for those ready to do the deep work.
+            This is not self-improvement &mdash; this is transformation. If
+            something here resonates, I&rsquo;d love to hear from you.
           </p>
           <div className="mt-8">
             <a
@@ -262,6 +284,52 @@ export default function Home() {
             >
               Work With Me
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Instagram Feed ─── */}
+      <section className="bg-white px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-5xl text-center">
+          <a
+            href="https://www.instagram.com/lindseybournecoaching/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-charcoal transition-colors hover:text-darkgray"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+            @lindseybournecoaching
+          </a>
+          <p className="mt-3 text-sm text-midgray">
+            Follow along for relationship insights, nervous system wisdom, and behind-the-scenes of the work.
+          </p>
+          {/* Instagram embed placeholder grid */}
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <a
+                key={i}
+                href="https://www.instagram.com/lindseybournecoaching/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aspect-square w-full bg-offwhite transition-opacity hover:opacity-80"
+                aria-label={`Instagram post ${i}`}
+              />
+            ))}
           </div>
         </div>
       </section>
