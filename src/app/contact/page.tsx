@@ -10,17 +10,16 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* ───────────── Hero ───────────── */}
-      <section className="bg-cream px-6 py-28 text-center sm:py-36">
-        <h1 className="font-serif text-5xl font-light tracking-tight text-charcoal sm:text-6xl">
+      {/* Hero */}
+      <section className="bg-white px-6 pt-32 pb-16 text-center sm:pt-40 sm:pb-20">
+        <h1 className="text-4xl font-bold tracking-tight text-charcoal sm:text-5xl">
           Contact Me
         </h1>
-        <div className="mx-auto mt-4 h-px w-16 bg-taupe-light" />
       </section>
 
-      {/* ───────────── Introduction Text ───────────── */}
-      <section className="bg-warm-white px-6 py-20 sm:py-28">
-        <div className="mx-auto max-w-2xl space-y-6 text-center font-sans text-base leading-relaxed text-charcoal-light sm:text-lg">
+      {/* Introduction Text */}
+      <section className="bg-white px-6 py-12 sm:py-16">
+        <div className="mx-auto max-w-2xl space-y-6 text-center text-base leading-relaxed text-darkgray sm:text-lg">
           <p>
             If you&rsquo;ve found your way here, chances are something in your
             life or relationships isn&rsquo;t feeling quite right, and
@@ -40,8 +39,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ───────────── Contact Form ───────────── */}
-      <section className="bg-warm-white px-6 pb-24 sm:pb-32">
+      {/* Contact Form */}
+      <section className="bg-white px-6 pb-24 sm:pb-32">
         <ContactForm />
       </section>
     </>

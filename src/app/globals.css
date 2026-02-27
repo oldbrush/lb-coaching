@@ -1,19 +1,13 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-cream: #F9F6F1;
-  --color-cream-dark: #F0EBE3;
-  --color-warm-white: #FDFCFA;
-  --color-charcoal: #2B2B2B;
-  --color-charcoal-light: #4A4A4A;
-  --color-taupe: #A89F91;
-  --color-taupe-light: #C7BFB2;
-  --color-sage: #8B9A7E;
-  --color-sage-dark: #6B7D5E;
-  --color-blush: #D4A59A;
-  --color-gold: #C4A97D;
-  --color-gold-dark: #A68B5B;
-  --font-serif: var(--font-cormorant);
+  --color-white: #ffffff;
+  --color-offwhite: #f7f7f5;
+  --color-lightgray: #e8e8e3;
+  --color-midgray: #767676;
+  --color-darkgray: #545454;
+  --color-charcoal: #1a1a1a;
+  --color-black: #000000;
   --font-sans: var(--font-montserrat);
 }
 
@@ -22,23 +16,18 @@ html {
 }
 
 body {
-  background: var(--color-warm-white);
+  background: var(--color-white);
   color: var(--color-charcoal);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif), Georgia, serif;
-}
-
 ::selection {
-  background-color: var(--color-cream-dark);
+  background-color: var(--color-lightgray);
   color: var(--color-charcoal);
 }
 
-/* Smooth fade-in animation for page sections */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -69,7 +58,6 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
 }
 
-/* Testimonial scroll */
 @keyframes scroll-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

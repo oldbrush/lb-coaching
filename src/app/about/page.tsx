@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About",
@@ -9,28 +10,31 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* ───────────── Hero ───────────── */}
-      <section className="bg-cream px-6 py-28 text-center sm:py-36">
-        <h1 className="font-serif text-5xl font-light tracking-tight text-charcoal sm:text-6xl">
+      {/* Hero */}
+      <section className="bg-white px-6 pt-32 pb-16 text-center sm:pt-40 sm:pb-20">
+        <h1 className="text-4xl font-bold tracking-tight text-charcoal sm:text-5xl">
           About Me
         </h1>
-        <div className="mx-auto mt-4 h-px w-16 bg-taupe-light" />
       </section>
 
-      {/* ───────────── Introduction + Photo ───────────── */}
-      <section className="bg-warm-white px-6 py-20 sm:py-28">
-        <div className="mx-auto grid max-w-5xl items-center gap-16 lg:grid-cols-2">
-          {/* Photo placeholder */}
-          <div className="flex aspect-[3/4] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-taupe-light/50 to-cream-dark text-lg font-medium tracking-wide text-charcoal-light">
-            Photo
+      {/* Introduction + Photo */}
+      <section className="bg-white px-6 py-16 sm:py-24">
+        <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-2">
+          <div className="relative aspect-[3/4] w-full overflow-hidden">
+            <Image
+              src="/images/about-portrait.jpg"
+              alt="Lindsey Bourne"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
           </div>
-
-          <div className="max-w-prose">
-            <h2 className="font-serif text-3xl font-light leading-snug text-charcoal sm:text-4xl">
-              Hi, I&rsquo;m Lindsey Bourne &amp; I&rsquo;m so glad you found
-              me!
+          <div>
+            <h2 className="text-2xl font-bold leading-snug text-charcoal sm:text-3xl">
+              Hi, I&rsquo;m Lindsey Bourne &amp; I&rsquo;m so glad you found me!
             </h2>
-            <p className="mt-6 font-sans text-base leading-relaxed text-charcoal-light sm:text-lg">
+            <p className="mt-6 text-base leading-relaxed text-darkgray sm:text-lg">
               I&rsquo;m a trauma-informed coach focused on helping people
               navigate the complexities of relationships and intimacy. My work
               lives at the intersection of somatic awareness, attachment science,
@@ -42,16 +46,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ───────────── What She Helps With ───────────── */}
-      <section className="bg-cream px-6 py-20 sm:py-28">
+      {/* What She Helps With */}
+      <section className="bg-offwhite px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-serif text-3xl font-light text-charcoal sm:text-4xl">
+          <h2 className="text-2xl font-bold text-charcoal sm:text-3xl">
             What I Help With
           </h2>
-          <div className="mx-auto mt-4 h-px w-12 bg-taupe-light" />
         </div>
 
-        <ul className="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-2">
+        <ul className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-2">
           {[
             "Bringing awareness to relational patterns and the trauma that drives them",
             "Disrupting old narratives and limiting self-beliefs that keep you playing small",
@@ -61,10 +64,10 @@ export default function AboutPage() {
           ].map((item) => (
             <li
               key={item}
-              className="flex items-start gap-4 rounded-xl bg-warm-white p-6 shadow-sm"
+              className="flex items-start gap-4 bg-white p-6"
             >
-              <span className="mt-1 block h-2 w-2 shrink-0 rounded-full bg-sage" />
-              <span className="font-sans text-base leading-relaxed text-charcoal-light">
+              <span className="mt-1.5 block h-2 w-2 shrink-0 rounded-full bg-charcoal" />
+              <span className="text-base leading-relaxed text-darkgray">
                 {item}
               </span>
             </li>
@@ -72,52 +75,31 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      {/* ───────────── Qualifications ───────────── */}
-      <section className="bg-warm-white px-6 py-20 sm:py-28">
+      {/* Qualifications */}
+      <section className="bg-white px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-serif text-3xl font-light text-charcoal sm:text-4xl">
+          <h2 className="text-2xl font-bold text-charcoal sm:text-3xl">
             Qualifications &amp; Training
           </h2>
-          <div className="mx-auto mt-4 h-px w-12 bg-taupe-light" />
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-4xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            {
-              label: "Master\u2019s Degree",
-              detail: "Integral Counseling Psychology",
-            },
-            {
-              label: "Clinical Training",
-              detail: "Marriage and Family Therapy (MFT)",
-            },
-            {
-              label: "Institution",
-              detail: "California Institute of Integral Studies",
-            },
-            {
-              label: "Couples Training",
-              detail:
-                "Intimacy From the Inside Out (IFS Institute)",
-            },
-            {
-              label: "Energy Healing",
-              detail: "Reiki Level 1 Certification",
-            },
-            {
-              label: "Justice Work",
-              detail:
-                "10 years in social and racial justice nonprofit work",
-            },
+            { label: "Master\u2019s Degree", detail: "Integral Counseling Psychology" },
+            { label: "Clinical Training", detail: "Marriage and Family Therapy (MFT)" },
+            { label: "Institution", detail: "California Institute of Integral Studies" },
+            { label: "Couples Training", detail: "Intimacy From the Inside Out (IFS Institute)" },
+            { label: "Energy Healing", detail: "Reiki Level 1 Certification" },
+            { label: "Justice Work", detail: "10 years in social and racial justice nonprofit work" },
           ].map((q) => (
             <div
               key={q.label}
-              className="rounded-xl border border-cream-dark bg-cream/40 p-6 text-center"
+              className="border border-lightgray p-6 text-center"
             >
-              <p className="font-serif text-lg font-semibold text-charcoal">
+              <p className="text-sm font-semibold uppercase tracking-wide text-charcoal">
                 {q.label}
               </p>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-charcoal-light">
+              <p className="mt-2 text-sm leading-relaxed text-darkgray">
                 {q.detail}
               </p>
             </div>
@@ -125,15 +107,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ───────────── Location & Personal ───────────── */}
-      <section className="bg-cream px-6 py-20 sm:py-28">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-center font-serif text-3xl font-light text-charcoal sm:text-4xl">
-            A Little More About Me
-          </h2>
-          <div className="mx-auto mt-4 h-px w-12 bg-taupe-light" />
-
-          <div className="mt-14 space-y-6 font-sans text-base leading-relaxed text-charcoal-light sm:text-lg">
+      {/* Location & Personal */}
+      <section className="bg-offwhite px-6 py-16 sm:py-24">
+        <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-2">
+          <div className="space-y-6 text-base leading-relaxed text-darkgray sm:text-lg">
+            <h2 className="text-2xl font-bold text-charcoal sm:text-3xl">
+              A Little More About Me
+            </h2>
             <p>
               I live and work in the{" "}
               <span className="font-medium text-charcoal">Bay Area</span> and
@@ -156,55 +136,43 @@ export default function AboutPage() {
               or wandering through Oakland&rsquo;s trees and hills.
             </p>
           </div>
+          <div className="relative aspect-[4/3] w-full overflow-hidden">
+            <Image
+              src="/images/about-photo-2.jpg"
+              alt="Lindsey in nature"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </section>
 
-      {/* ───────────── Coaching Genius Areas ───────────── */}
-      <section className="bg-warm-white px-6 py-20 sm:py-28">
+      {/* Coaching Genius Areas */}
+      <section className="bg-white px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-serif text-3xl font-light text-charcoal sm:text-4xl">
+          <h2 className="text-2xl font-bold text-charcoal sm:text-3xl">
             My Coaching Genius
           </h2>
-          <div className="mx-auto mt-4 h-px w-12 bg-taupe-light" />
-          <p className="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-charcoal-light sm:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-darkgray sm:text-lg">
             These are the areas where my training, intuition, and lived
             experience converge to create the deepest transformation.
           </p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-4xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            {
-              title: "Body Wisdom",
-              description:
-                "Tuning into somatic intelligence to understand how your body experiences love and safety.",
-            },
-            {
-              title: "Compassionate Parts Work",
-              description:
-                "Developing compassion toward the protective emotional parts that have kept you guarded.",
-            },
-            {
-              title: "Deep Wound Identification",
-              description:
-                "Uncovering the core relational wounds and patterns that shape your intimate connections.",
-            },
-            {
-              title: "Relationships as Portals",
-              description:
-                "Using your relationships as sacred mirrors and healing portals for profound growth.",
-            },
-            {
-              title: "Self-Worth & Attraction",
-              description:
-                "Connecting the relationship between self-worth, energetic magnetism, and who you attract.",
-            },
+            { title: "Body Wisdom", description: "Tuning into somatic intelligence to understand how your body experiences love and safety." },
+            { title: "Compassionate Parts Work", description: "Developing compassion toward the protective emotional parts that have kept you guarded." },
+            { title: "Deep Wound Identification", description: "Uncovering the core relational wounds and patterns that shape your intimate connections." },
+            { title: "Relationships as Portals", description: "Using your relationships as sacred mirrors and healing portals for profound growth." },
+            { title: "Self-Worth & Attraction", description: "Connecting the relationship between self-worth, energetic magnetism, and who you attract." },
           ].map((area) => (
-            <div key={area.title} className="group rounded-xl bg-cream/60 p-8">
-              <h3 className="font-serif text-xl font-semibold text-charcoal">
+            <div key={area.title} className="bg-offwhite p-8">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-charcoal">
                 {area.title}
               </h3>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-charcoal-light">
+              <p className="mt-3 text-sm leading-relaxed text-darkgray">
                 {area.description}
               </p>
             </div>
@@ -212,87 +180,60 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ───────────── Three Phases ───────────── */}
-      <section className="bg-cream px-6 py-20 sm:py-28">
+      {/* Three Phases */}
+      <section className="bg-offwhite px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-serif text-3xl font-light text-charcoal sm:text-4xl">
+          <h2 className="text-2xl font-bold text-charcoal sm:text-3xl">
             The Three Phases of Transformation
           </h2>
-          <div className="mx-auto mt-4 h-px w-12 bg-taupe-light" />
-          <p className="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-charcoal-light sm:text-lg">
-            Every coaching engagement moves through three intentional phases
-            designed to create lasting change from the inside out.
-          </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-10 lg:grid-cols-3">
-          {/* Phase 1 */}
-          <div className="rounded-2xl bg-warm-white p-10 shadow-sm">
-            <span className="font-sans text-xs font-semibold uppercase tracking-widest text-sage">
-              Phase 1
-            </span>
-            <h3 className="mt-3 font-serif text-2xl font-semibold text-charcoal">
-              Understand
-            </h3>
-            <p className="mt-4 font-sans text-sm leading-relaxed text-charcoal-light">
-              We begin by mapping your attachment style, relational history, and
-              the unconscious patterns that have been running the show. Through
-              somatic awareness and deep inquiry, you&rsquo;ll gain clarity on
-              <em> why</em> you repeat certain dynamics&mdash;and what your
-              nervous system has been trying to protect you from all along.
-            </p>
-          </div>
-
-          {/* Phase 2 */}
-          <div className="rounded-2xl bg-warm-white p-10 shadow-sm">
-            <span className="font-sans text-xs font-semibold uppercase tracking-widest text-sage">
-              Phase 2
-            </span>
-            <h3 className="mt-3 font-serif text-2xl font-semibold text-charcoal">
-              Uncover
-            </h3>
-            <p className="mt-4 font-sans text-sm leading-relaxed text-charcoal-light">
-              Next, we gently peel back the layers to reveal the core wounds,
-              limiting beliefs, and protective parts that have kept you stuck.
-              This is where the deep, compassionate work happens&mdash;meeting
-              every part of yourself with curiosity instead of judgment so
-              real healing can begin.
-            </p>
-          </div>
-
-          {/* Phase 3 */}
-          <div className="rounded-2xl bg-warm-white p-10 shadow-sm">
-            <span className="font-sans text-xs font-semibold uppercase tracking-widest text-sage">
-              Phase 3
-            </span>
-            <h3 className="mt-3 font-serif text-2xl font-semibold text-charcoal">
-              Rewire
-            </h3>
-            <p className="mt-4 font-sans text-sm leading-relaxed text-charcoal-light">
-              Finally, we actively rewire the subconscious patterns and nervous
-              system responses that have been keeping you in survival mode. You
-              will build new neural pathways, develop secure attachment
-              behaviors, and step into relationships from a place of wholeness,
-              self-trust, and aligned attraction.
-            </p>
-          </div>
+        <div className="mx-auto mt-12 grid max-w-5xl gap-8 lg:grid-cols-3">
+          {[
+            {
+              phase: "Phase 1",
+              title: "Understand",
+              text: "We begin by mapping your attachment style, relational history, and the unconscious patterns that have been running the show. Through somatic awareness and deep inquiry, you\u2019ll gain clarity on why you repeat certain dynamics\u2014and what your nervous system has been trying to protect you from all along.",
+            },
+            {
+              phase: "Phase 2",
+              title: "Uncover",
+              text: "Next, we gently peel back the layers to reveal the core wounds, limiting beliefs, and protective parts that have kept you stuck. This is where the deep, compassionate work happens\u2014meeting every part of yourself with curiosity instead of judgment so real healing can begin.",
+            },
+            {
+              phase: "Phase 3",
+              title: "Rewire",
+              text: "Finally, we actively rewire the subconscious patterns and nervous system responses that have been keeping you in survival mode. You will build new neural pathways, develop secure attachment behaviors, and step into relationships from a place of wholeness, self-trust, and aligned attraction.",
+            },
+          ].map((p) => (
+            <div key={p.phase} className="bg-white p-10">
+              <span className="text-xs font-semibold uppercase tracking-widest text-midgray">
+                {p.phase}
+              </span>
+              <h3 className="mt-3 text-xl font-bold text-charcoal">
+                {p.title}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-darkgray">
+                {p.text}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ───────────── CTA ───────────── */}
-      <section className="bg-warm-white px-6 py-24 sm:py-32">
+      {/* CTA */}
+      <section className="bg-white px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-serif text-2xl font-light leading-relaxed text-charcoal sm:text-3xl">
+          <p className="text-xl font-light leading-relaxed text-charcoal sm:text-2xl">
             I&rsquo;d love to support you in breaking free from your past &amp;
             creating something more aligned and expansive&mdash;starting from
             within.
           </p>
-
           <a
             href="https://calendly.com/lindseybournecoaching/free-consultation"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-block rounded-full bg-sage px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-warm-white transition-colors hover:bg-sage-dark"
+            className="mt-8 inline-block bg-charcoal px-10 py-4 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-darkgray"
           >
             Book a Free Consultation
           </a>

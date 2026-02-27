@@ -13,8 +13,6 @@ export default function ContactForm() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
-
-    // TODO: Connect to form handling API (e.g. Formspree, custom API route)
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setStatus("success");
@@ -28,8 +26,8 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="mx-auto max-w-2xl rounded-2xl bg-cream p-12 text-center shadow-sm sm:p-16">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sage/20">
+      <div className="mx-auto max-w-2xl border border-lightgray p-12 text-center sm:p-16">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-offwhite">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -40,17 +38,17 @@ export default function ContactForm() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-sage-dark"
+            className="text-charcoal"
             aria-hidden="true"
           >
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
 
-        <h3 className="mt-6 font-serif text-2xl font-light text-charcoal sm:text-3xl">
+        <h3 className="mt-6 text-2xl font-bold text-charcoal">
           Thank You
         </h3>
-        <p className="mt-4 font-sans text-base leading-relaxed text-charcoal-light">
+        <p className="mt-4 text-base leading-relaxed text-darkgray">
           Your message has been sent. I&rsquo;ll be in touch soon&mdash;I look
           forward to connecting with you.
         </p>
@@ -58,7 +56,7 @@ export default function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-8 inline-block font-sans text-sm font-medium tracking-wide text-sage transition-colors hover:text-sage-dark"
+          className="mt-8 inline-block text-sm font-medium tracking-wide text-charcoal underline transition-colors hover:text-darkgray"
         >
           Send another message
         </button>
@@ -69,16 +67,15 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto max-w-2xl rounded-2xl bg-cream p-8 shadow-sm sm:p-12"
+      className="mx-auto max-w-2xl border border-lightgray p-8 sm:p-12"
     >
       <div className="flex flex-col gap-6">
-        {/* Name */}
         <div>
           <label
             htmlFor="contact-name"
-            className="block font-sans text-xs font-semibold uppercase tracking-widest text-charcoal-light"
+            className="block text-xs font-semibold uppercase tracking-widest text-midgray"
           >
-            Name <span className="text-blush">*</span>
+            Name <span className="text-red-500">*</span>
           </label>
           <input
             id="contact-name"
@@ -87,17 +84,16 @@ export default function ContactForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Your name"
-            className="mt-2 w-full rounded-sm border border-taupe-light bg-warm-white px-4 py-3 font-sans text-sm text-charcoal placeholder:text-taupe transition-colors focus:border-sage focus:outline-none"
+            className="mt-2 w-full border border-lightgray bg-white px-4 py-3 text-sm text-charcoal placeholder:text-midgray transition-colors focus:border-charcoal focus:outline-none"
           />
         </div>
 
-        {/* Email */}
         <div>
           <label
             htmlFor="contact-email"
-            className="block font-sans text-xs font-semibold uppercase tracking-widest text-charcoal-light"
+            className="block text-xs font-semibold uppercase tracking-widest text-midgray"
           >
-            Email <span className="text-blush">*</span>
+            Email <span className="text-red-500">*</span>
           </label>
           <input
             id="contact-email"
@@ -106,17 +102,16 @@ export default function ContactForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="mt-2 w-full rounded-sm border border-taupe-light bg-warm-white px-4 py-3 font-sans text-sm text-charcoal placeholder:text-taupe transition-colors focus:border-sage focus:outline-none"
+            className="mt-2 w-full border border-lightgray bg-white px-4 py-3 text-sm text-charcoal placeholder:text-midgray transition-colors focus:border-charcoal focus:outline-none"
           />
         </div>
 
-        {/* Message */}
         <div>
           <label
             htmlFor="contact-message"
-            className="block font-sans text-xs font-semibold uppercase tracking-widest text-charcoal-light"
+            className="block text-xs font-semibold uppercase tracking-widest text-midgray"
           >
-            Message <span className="text-blush">*</span>
+            Message <span className="text-red-500">*</span>
           </label>
           <textarea
             id="contact-message"
@@ -125,22 +120,21 @@ export default function ContactForm() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Tell me a little about what you're looking for..."
-            className="mt-2 w-full resize-y rounded-sm border border-taupe-light bg-warm-white px-4 py-3 font-sans text-sm leading-relaxed text-charcoal placeholder:text-taupe transition-colors focus:border-sage focus:outline-none"
+            className="mt-2 w-full resize-y border border-lightgray bg-white px-4 py-3 text-sm leading-relaxed text-charcoal placeholder:text-midgray transition-colors focus:border-charcoal focus:outline-none"
           />
         </div>
       </div>
 
-      {/* Submit */}
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-8 w-full rounded-sm bg-sage px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-warm-white transition-colors hover:bg-sage-dark disabled:opacity-60 sm:w-auto"
+        className="mt-8 w-full bg-charcoal px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-darkgray disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? "Sending..." : "Send Message"}
       </button>
 
       {status === "error" && (
-        <p className="mt-4 font-sans text-sm text-blush">
+        <p className="mt-4 text-sm text-red-600">
           Something went wrong. Please try again.
         </p>
       )}

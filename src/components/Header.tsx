@@ -20,15 +20,13 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Track scroll position for background transition
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll(); // set initial state
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
@@ -36,7 +34,6 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
@@ -47,20 +44,18 @@ export default function Header() {
     <header
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-cream/90 shadow-sm backdrop-blur-md"
-          : "bg-transparent"
+          ? "bg-white/95 shadow-sm backdrop-blur-md"
+          : "bg-white"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        {/* ── Site title ── */}
         <Link
           href="/"
-          className="font-serif text-2xl font-semibold tracking-wide text-charcoal transition-colors hover:text-sage-dark md:text-3xl"
+          className="font-sans text-lg font-semibold tracking-wide text-charcoal uppercase md:text-xl"
         >
           Lindsey Bourne Coaching
         </Link>
 
-        {/* ── Desktop nav ── */}
         <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map(({ href, label }) => {
             const isActive = pathname === href;
@@ -68,32 +63,27 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className={`font-sans text-sm font-medium tracking-widest uppercase transition-colors duration-200 ${
+                className={`font-sans text-xs font-medium tracking-widest uppercase transition-colors duration-200 ${
                   isActive
-                    ? "text-sage-dark"
-                    : "text-charcoal-light hover:text-sage-dark"
+                    ? "text-charcoal"
+                    : "text-midgray hover:text-charcoal"
                 }`}
               >
                 {label}
-                {isActive && (
-                  <span className="mt-0.5 block h-0.5 rounded-full bg-sage" />
-                )}
               </Link>
             );
           })}
 
-          {/* CTA */}
           <a
             href={CONSULTATION_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 inline-block rounded-full bg-sage px-5 py-2.5 font-sans text-xs font-semibold tracking-widest text-white uppercase shadow-sm transition-all duration-200 hover:bg-sage-dark hover:shadow-md"
+            className="ml-2 inline-block bg-charcoal px-5 py-2.5 font-sans text-xs font-semibold tracking-widest text-white uppercase transition-colors hover:bg-darkgray"
           >
             Free Consultation
           </a>
         </div>
 
-        {/* ── Mobile hamburger ── */}
         <button
           type="button"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -125,9 +115,8 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* ── Mobile menu overlay ── */}
       <div
-        className={`fixed inset-0 z-40 bg-charcoal/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-black/30 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           mobileOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -136,9 +125,8 @@ export default function Header() {
         aria-hidden="true"
       />
 
-      {/* ── Mobile menu panel ── */}
       <div
-        className={`fixed top-0 right-0 z-40 flex h-full w-4/5 max-w-sm flex-col bg-cream shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 z-40 flex h-full w-4/5 max-w-sm flex-col bg-white shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -152,8 +140,8 @@ export default function Header() {
                 onClick={closeMobile}
                 className={`font-sans text-lg font-medium tracking-widest uppercase transition-colors duration-200 ${
                   isActive
-                    ? "text-sage-dark"
-                    : "text-charcoal-light hover:text-sage-dark"
+                    ? "text-charcoal"
+                    : "text-midgray hover:text-charcoal"
                 }`}
               >
                 {label}
@@ -161,14 +149,14 @@ export default function Header() {
             );
           })}
 
-          <div className="my-4 h-px w-12 bg-taupe-light" />
+          <div className="my-4 h-px w-12 bg-lightgray" />
 
           <a
             href={CONSULTATION_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={closeMobile}
-            className="w-fit rounded-full bg-sage px-6 py-3 font-sans text-xs font-semibold tracking-widest text-white uppercase shadow-sm transition-all duration-200 hover:bg-sage-dark hover:shadow-md"
+            className="w-fit bg-charcoal px-6 py-3 font-sans text-xs font-semibold tracking-widest text-white uppercase transition-colors hover:bg-darkgray"
           >
             Free Consultation
           </a>
